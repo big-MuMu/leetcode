@@ -11,30 +11,17 @@
  * @return {string}
  */
 var licenseKeyFormatting = function(S, K) {
-    S = S.replace(/\-/g, '');
-    // var len = S.length - 1;
-    // var res = ''
-    // var ss = ''
-    // console.log(S, len)
-    // while (len >= 0) {
-    //     if (ss.length !== K) {
-    //         ss = S[len] + ss
-    //     } else {
-    //         res = '-' + ss + res;
-    //         ss = ''
-    //     }
-    //     len--;
-    // }
-    // return res;
-    S = S.split('').reverse();
+    S = S.toUpperCase().split('').reverse().join('');
+    S = S.split('-').join('');
+    var i = 0;
     var res = [];
-    var i = 0
-    console.log(S)
-    while (res.length < S.length / K) {
-        res.push(S.slice(0 * i + K, K * i + K))
+    while (i * K < S.length) {
+        
+        res.push(S.slice(i * K, K * i + K).split('').reverse().join(''));
         i++
     }
-    console.log(res)
+    // while ()
+    return res.reverse().join('-');
 };
 // @lc code=end
 
