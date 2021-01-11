@@ -14,8 +14,9 @@ var strStr = function(haystack, needle) {
     if (needle === '') {
         return 0;
     }
+    const len = needle.length;
     for (var i = 0; i < haystack.length; i++) {
-        if (haystack[i] + haystack[i+ 1] === needle) {
+        if (haystack.substr(i, len) === needle) {
             return i;
         }
     }
